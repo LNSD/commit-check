@@ -6,6 +6,7 @@ on:
     branches:
     - "main"
     - "renovate/lock-file-maintenance"
+    - "renovate/*"
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
@@ -17,46 +18,16 @@ env:
 jobs:
   test:
     runs-on: ubuntu-latest
-    strategy:
-      matrix: { rust: [ "1.66", "stable" ] }
     steps:
       - uses: actions/checkout@v4
 
-      - name: Set up Go
-        uses: actions/setup-go@v4
-
       - name: Setup Rust toolchain
-        uses: dtolnay/rust-toolchain@master
+        uses: dtolnay/rust-toolchain@stable
         with:
-          toolchain: ${{ matrix.rust }}
           components: rustfmt, clippy, llvm-tools-preview
 
       - name: Cache Cargo build files
         uses: Leafwing-Studios/cargo-cache@v1
-
-      - name: Install Protoc
-        uses: arduino/setup-protoc@v1
-        with:
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Install Buf
-        uses: bufbuild/buf-setup-action@v1
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Install Protoc's Prost plugin
-        uses: baptiste0928/cargo-install@v2
-        with:
-          crate: protoc-gen-prost
-
-      - name: Install Protoc's Prost crate plugin
-        uses: baptiste0928/cargo-install@v2
-        with:
-          crate: protoc-gen-prost-crate
-
-      - name: Install Protoc's doc plugin
-        run: |
-          go install github.com/pseudomuto/protoc-gen-doc/cmd/protoc-gen-doc@latest
 
       - name: Install Cargo LLVM cov
         uses: baptiste0928/cargo-install@v2
@@ -67,34 +38,18 @@ jobs:
         uses: baptiste0928/cargo-install@v2
         with:
           crate: cargo-nextest
-          version: 0.9.57  # MSRV: 1.66
+          version: 0.9.66
 
       - name: Cargo check
         run: cargo check --all-targets --all-features
 
-      - name: Check uncommitted generated files
-        uses: tj-actions/verify-changed-files@main
-        if: matrix.rust == 'stable'
-        with:
-          files: pubsub-proto/src/gen/**
-          fail-if-changed: true
-          fail-message: |
-            The following files changed after running cargo check command:
-
-            ${{ steps.verify-changed-files.outputs.files }}
-
-            Please run `cargo build` locally and commit the changes.
-
       - name: Cargo fmt
-        if: matrix.rust == 'stable'
         run: cargo fmt --all -- --check
 
       - name: Cargo clippy
-        if: matrix.rust == 'stable'
         run: cargo clippy --all-targets --all-features -- -D warnings --force-warn deprecated --force-warn dead-code
 
       - name: Cargo doc
-        if: matrix.rust == 'stable'
         env:
           RUSTDOCFLAGS: "-D warnings"
         run: cargo doc --no-deps --all-features
@@ -107,41 +62,12 @@ jobs:
 
       - name: Upload unit tests coverage report to codecov
         uses: codecov/codecov-action@v3
-        if: matrix.rust == 'stable'
         with:
           files: unit-lcov.info
           flags: unit
 
       - name: Upload integration tests coverage report to codecov
         uses: codecov/codecov-action@v3
-        if: matrix.rust == 'stable'
         with:
           files: it-lcov.info
           flags: integration
-
-  proto:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - uses: bufbuild/buf-setup-action@v1
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-
-      - uses: bufbuild/buf-lint-action@v1
-        with:
-          input: pubsub-proto/proto
-
-      # Perform breaking change detection against the `main` branch (pull-request)
-      - uses: bufbuild/buf-breaking-action@v1
-        if: github.ref != 'refs/heads/main' && github.event_name == 'pull_request'
-        with:
-          input: "pubsub-proto/proto"
-          against: "https://github.com/${GITHUB_REPOSITORY}.git#branch=main,subdir=pubsub-proto/proto"
-
-      # Perform breaking change detection against the `main` branch
-      - uses: bufbuild/buf-breaking-action@v1
-        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
-        with:
-          input: "pubsub-proto/proto"
-          against: "https://github.com/${GITHUB_REPOSITORY}.git#branch=main,subdir=pubsub-proto/proto,ref=HEAD~1"
