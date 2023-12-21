@@ -6,6 +6,7 @@ on:
     branches:
     - "main"
     - "renovate/lock-file-maintenance"
+    - "renovate/*"
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
