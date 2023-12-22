@@ -18,7 +18,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
 
       - name: Setup Rust toolchain
         uses: dtolnay/rust-toolchain@stable
@@ -26,15 +26,15 @@ jobs:
           components: rustfmt, clippy, llvm-tools-preview
 
       - name: Cache Cargo build files
-        uses: Leafwing-Studios/cargo-cache@v1
+        uses: Leafwing-Studios/cargo-cache@5edda26afa3d28be5d6ee87d4c69c246e3ee37fb # v1
 
       - name: Install Cargo LLVM cov
-        uses: baptiste0928/cargo-install@v2
+        uses: baptiste0928/cargo-install@21a18ba3bf4a184d1804e8b759930d3471b1c941 # v2
         with:
           crate: cargo-llvm-cov
 
       - name: Install Cargo nextest
-        uses: baptiste0928/cargo-install@v2
+        uses: baptiste0928/cargo-install@21a18ba3bf4a184d1804e8b759930d3471b1c941 # v2
         with:
           crate: cargo-nextest
           version: 0.9.66
@@ -60,13 +60,13 @@ jobs:
         run: cargo llvm-cov nextest r --test '*' --lcov --output-path it-lcov.info
 
       - name: Upload unit tests coverage report to codecov
-        uses: codecov/codecov-action@v3
+        uses: codecov/codecov-action@eaaf4bedf32dbdc6b720b63067d99c4d77d6047d # v3
         with:
           files: unit-lcov.info
           flags: unit
 
       - name: Upload integration tests coverage report to codecov
-        uses: codecov/codecov-action@v3
+        uses: codecov/codecov-action@eaaf4bedf32dbdc6b720b63067d99c4d77d6047d # v3
         with:
           files: it-lcov.info
           flags: integration
