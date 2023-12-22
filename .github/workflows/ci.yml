@@ -54,10 +54,10 @@ jobs:
         run: cargo doc --no-deps --all-features
 
       - name: Run unit tests
-        run: cargo llvm-cov nextest r --lib --lcov --output-path unit-lcov.info
+        run: cargo llvm-cov nextest --lib --lcov --output-path unit-lcov.info
 
       - name: Run integration tests
-        run: cargo llvm-cov nextest r --test '*' --lcov --output-path it-lcov.info
+        run: cargo llvm-cov nextest --test '*' --lcov --output-path it-lcov.info
 
       - name: Upload unit tests coverage report to codecov
         uses: codecov/codecov-action@eaaf4bedf32dbdc6b720b63067d99c4d77d6047d # v3
