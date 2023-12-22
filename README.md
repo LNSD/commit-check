@@ -2,6 +2,7 @@
 ---------------
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](./LICENSE)
 [![ci](https://github.com/LNSD/commit-check/actions/workflows/ci.yml/badge.svg)](https://github.com/LNSD/commit-check/actions/workflows/ci.yml)
+[![codecov](https://codecov.io/gh/LNSD/commit-check/graph/badge.svg?token=4MAWTRVWYJ)](https://codecov.io/gh/LNSD/commit-check)
 
 > [!Warning]
 > This is a work in progress and is not ready for production use.
