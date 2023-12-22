@@ -1,2 +1,8 @@
 [workspace]
-members = []
+resolver = "2"
+members = [
+    "core",
+]
+
+[workspace.dependencies]
+thiserror = "1.0"
