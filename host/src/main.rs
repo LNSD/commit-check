@@ -1,4 +1,4 @@
-//! Example from: https://docs.wasmtime.dev/lang-rust.html
+// Example from: https://docs.wasmtime.dev/lang-rust.html
 
 use wasmtime::{Engine, Instance, Module, Store};
 
