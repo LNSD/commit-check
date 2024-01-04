@@ -9,7 +9,6 @@ members = [
 authors = ["Lorenzo Delgado (LNSD) <lnsdev@proton.me>"]
 repository = "https://github.com/LNSD/commit-check.git"
 license = "Apache-2.0"
-license-file = "LICENSE"
 edition = "2021"
 rust-version = "1.72.1"
 
