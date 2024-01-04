@@ -39,6 +39,9 @@ jobs:
           crate: cargo-nextest
           version: 0.9.66
 
+      - name: Setup Rust problem matchers
+        uses: r7kamura/rust-problem-matchers@2c2f1016021a7455a6b5b4bbae31145f3b3cd83a # v1
+
       - name: Cargo check
         run: cargo check --all-targets --all-features
 
