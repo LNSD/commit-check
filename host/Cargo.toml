@@ -1,0 +1,19 @@
+[package]
+name = "commit-check"
+version = "0.1.0"
+description = "Commit-check Webassembly runtime and CLI"
+authors = ["LNSD <lnsdev@proton.me>"]
+license = "Apache-2.0"
+edition = "2021"
+rust-version = "1.56.1"
+
+[[bin]]
+name = "commit-check"
+path = "src/main.rs"
+
+[dependencies]
+anyhow = "1.0.79"
+clap = "4.4"
+indoc = "2.0.4"
+thiserror.workspace = true
+wasmtime = "16.0"
