@@ -5,5 +5,12 @@ members = [
     "host",
 ]
 
+[workspace.package]
+authors = ["Lorenzo Delgado (LNSD) <lnsdev@proton.me>"]
+repository = "https://github.com/LNSD/commit-check.git"
+license = "Apache-2.0"
+edition = "2021"
+rust-version = "1.72.1"
+
 [workspace.dependencies]
 thiserror = "1.0"

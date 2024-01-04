@@ -2,10 +2,11 @@
 name = "commit-check"
 version = "0.1.0"
 description = "Commit-check Webassembly runtime and CLI"
-authors = ["LNSD <lnsdev@proton.me>"]
-license = "Apache-2.0"
-edition = "2021"
-rust-version = "1.56.1"
+authors.workspace = true
+repository.workspace = true
+license.workspace = true
+edition.workspace = true
+rust-version.workspace = true
 
 [[bin]]
 name = "commit-check"

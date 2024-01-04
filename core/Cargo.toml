@@ -1,18 +1,16 @@
 [package]
 name = "commit-check-core"
 version = "0.1.0"
-description = "Core commit-check module"
-authors = ["LNSD <lnsdev@proton.me>"]
-license = "Apache-2.0"
-edition = "2021"
-rust-version = "1.56.1"
+description = "Commit-check core component"
+authors.workspace = true
+repository.workspace = true
+license.workspace = true
+edition.workspace = true
+rust-version.workspace = true
 
 [[bin]]
 name = "core"
 path = "src/main.rs"
-
-[dependencies]
-wit-bindgen = "0.16.0"
 
 [dev-dependencies]
 assert_matches = "1.5.0"
