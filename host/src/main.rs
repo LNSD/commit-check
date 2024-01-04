@@ -2,7 +2,7 @@
 
 use wasmtime::{Engine, Instance, Module, Store};
 
-pub fn main() -> anyhow::Result<()> {
+fn main() -> anyhow::Result<()> {
     // An engine stores and configures global compilation settings like
     // optimization level, enabled wasm features, etc.
     let engine = Engine::default();
