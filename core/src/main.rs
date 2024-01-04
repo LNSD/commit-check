@@ -1,6 +1,6 @@
 use std::io::Read;
 
-fn main() {
+pub fn main() {
     let mut input = String::with_capacity(512);
 
     if let Err(e) = std::io::stdin().read_to_string(&mut input) {
