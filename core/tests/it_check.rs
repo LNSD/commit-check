@@ -1,6 +1,6 @@
 use assert_matches::assert_matches;
 
-use commit_check_core::check;
+use commit_check_core::length::check;
 
 #[test]
 fn valid_message() {
