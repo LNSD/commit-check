@@ -9,6 +9,12 @@
 
 Enforce a predefined commit message convention for git log consistency.
 
+## Packages
+
+The project is split into multiple packages:
+
+- [core/](./core) - The _commit-check_ core component library.
+- [host/](./host) - The _commit-check_ Webassembly runtime implementation.
 
 ## License
 
