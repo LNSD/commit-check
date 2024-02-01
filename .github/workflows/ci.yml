@@ -63,13 +63,13 @@ jobs:
         run: cargo llvm-cov nextest --test '*' --lcov --output-path it-lcov.info
 
       - name: Upload unit tests coverage report to codecov
-        uses: codecov/codecov-action@eaaf4bedf32dbdc6b720b63067d99c4d77d6047d # v3
+        uses: codecov/codecov-action@f30e4959ba63075080d4f7f90cacc18d9f3fafd7 # v4
         with:
           files: unit-lcov.info
           flags: unit
 
       - name: Upload integration tests coverage report to codecov
-        uses: codecov/codecov-action@eaaf4bedf32dbdc6b720b63067d99c4d77d6047d # v3
+        uses: codecov/codecov-action@f30e4959ba63075080d4f7f90cacc18d9f3fafd7 # v4
         with:
           files: it-lcov.info
           flags: integration
