@@ -29,12 +29,12 @@ jobs:
         uses: Leafwing-Studios/cargo-cache@c7e8aa40ae2c975774d3bd766beb92927cfd7771 # v1
 
       - name: Install Cargo LLVM cov
-        uses: baptiste0928/cargo-install@1cd874a5478fdca35d868ccc74640c5aabbb8f1b # v3
+        uses: baptiste0928/cargo-install@94e1849646e5797d0c8b34d8e525124ae9ae1d86 # v3
         with:
           crate: cargo-llvm-cov
 
       - name: Install Cargo nextest
-        uses: baptiste0928/cargo-install@1cd874a5478fdca35d868ccc74640c5aabbb8f1b # v3
+        uses: baptiste0928/cargo-install@94e1849646e5797d0c8b34d8e525124ae9ae1d86 # v3
         with:
           crate: cargo-nextest
           version: 0.9.66
