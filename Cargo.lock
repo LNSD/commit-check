@@ -142,9 +142,9 @@ checksum = "1fd0f2584146f6f2ef48085050886acf353beff7305ebd1ae69500e27c67f64b"
 
 [[package]]
 name = "cc"
-version = "1.0.99"
+version = "1.0.100"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "96c51067fd44124faa7f870b4b1c969379ad32b2ba805aa959430ceaa384f695"
+checksum = "c891175c3fb232128f48de6590095e59198bbeb8620c310be349bfc3afd12c7b"
 dependencies = [
  "jobserver",
  "libc",
@@ -736,9 +736,9 @@ dependencies = [
 
 [[package]]
 name = "proc-macro2"
-version = "1.0.85"
+version = "1.0.86"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "22244ce15aa966053a896d1accb3a6e68469b97c7f33f284b99f0d576879fc23"
+checksum = "5e719e8df665df0d1c8fbfd238015744736151d4445ec0836b8e628aae103b77"
 dependencies = [
  "unicode-ident",
 ]
@@ -928,9 +928,9 @@ checksum = "7da8b5736845d9f2fcb837ea5d9e2628564b3b043a70948a3f0b778838c5fb4f"
 
 [[package]]
 name = "syn"
-version = "2.0.66"
+version = "2.0.68"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "c42f3f41a2de00b01c0aaad383c5a45241efc8b2d1eda5661812fda5f3cdcff5"
+checksum = "901fa70d88b9d6c98022e23b4136f9f3e54e4662c3bc1bd1d84a42a9a0f0c1e9"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -1056,9 +1056,9 @@ dependencies = [
 
 [[package]]
 name = "wasm-encoder"
-version = "0.210.0"
+version = "0.211.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "e7e3764d9d6edabd8c9e16195e177be0d20f6ab942ad18af52860f12f82bc59a"
+checksum = "5e7d931a1120ef357f32b74547646b6fa68ea25e377772b72874b131a9ed70d4"
 dependencies = [
  "leb128",
 ]
@@ -1341,22 +1341,22 @@ dependencies = [
 
 [[package]]
 name = "wast"
-version = "210.0.0"
+version = "211.0.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "aa835c59bd615e00f16be65705d85517d40b44b3c831d724e450244685176c3c"
+checksum = "b25506dd82d00da6b14a87436b3d52b1d264083fa79cdb72a0d1b04a8595ccaa"
 dependencies = [
  "bumpalo",
  "leb128",
  "memchr",
  "unicode-width",
- "wasm-encoder 0.210.0",
+ "wasm-encoder 0.211.1",
 ]
 
 [[package]]
 name = "wat"
-version = "1.210.0"
+version = "1.211.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "67faece8487996430c6812be7f8776dc563ca0efcd3db77f8839070480c0d1a6"
+checksum = "eb716ca6c86eecac2d82541ffc39860118fc0af9309c4f2670637bea2e1bdd7d"
 dependencies = [
  "wast",
 ]
@@ -1540,9 +1540,9 @@ dependencies = [
 
 [[package]]
 name = "zstd-sys"
-version = "2.0.10+zstd.1.5.6"
+version = "2.0.11+zstd.1.5.6"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "c253a4914af5bafc8fa8c86ee400827e83cf6ec01195ec1f1ed8441bf00d65aa"
+checksum = "75652c55c0b6f3e6f12eb786fe1bc960396bf05a1eb3bf1f3691c3610ac2e6d4"
 dependencies = [
  "cc",
  "pkg-config",
