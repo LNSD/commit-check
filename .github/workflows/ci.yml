@@ -26,7 +26,7 @@ jobs:
           components: rustfmt, clippy, llvm-tools-preview
 
       - name: Cache Cargo build files
-        uses: Leafwing-Studios/cargo-cache@4deea66cb7f21307071dfb99e1e29bf1a74caeb4 # v2
+        uses: Leafwing-Studios/cargo-cache@80f9ec4837f41b835de31884132947e9100b79eb # v2
 
       - name: Install Cargo LLVM cov
         uses: baptiste0928/cargo-install@904927dbe77864e0f2281519fe9d5bd097a220b3 # v3
