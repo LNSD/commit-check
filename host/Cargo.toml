@@ -17,4 +17,4 @@ anyhow = "1.0.82"
 clap = "4.5.4"
 indoc = "2.0.5"
 thiserror.workspace = true
-wasmtime = "23.0"
+wasmtime = "24.0"
